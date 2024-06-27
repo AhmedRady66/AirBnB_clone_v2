@@ -13,8 +13,10 @@ from models.review import Review
 from models.engine.file_storage import FileStorage
 import shlex
 import models
+
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
+
 
 class HBNBCommand(cmd.Cmd):
     """ Contains the functionality for the HBNB console"""
