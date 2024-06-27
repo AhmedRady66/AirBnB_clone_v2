@@ -25,6 +25,7 @@ class Place(BaseModel, Base):
 
     if getenv('HBNB_TYPE_STORAGE') == 'db':
         reviews = relationship("Review", backref="place")
+
     else:
         @property
         def reviews(self):
@@ -32,6 +33,6 @@ class Place(BaseModel, Base):
             review_list = []
             all_reviews = models.storage.all(Review)
             for review in all_reviews.values():
-                if review.state_id == self.id:
+                if review.place_id == self.id:
                     review_list.append(review)
             return review_list
