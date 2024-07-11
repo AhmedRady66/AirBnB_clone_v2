@@ -1,9 +1,10 @@
+#!/usr/bin/python3
+""" Distribute an archive to your web servers """
+
 from fabric.api import put, run, env
 import os
-
 env.hosts = ['54.146.82.115', '54.87.179.88']
-env.output_prefix = False  # Disable default Fabric output prefix
-env.output_suffix = False  # Disable default Fabric output suffix
+
 
 def do_deploy(archive_path):
     """ Fabric script (based on the file 1-pack_web_static.py) """
@@ -25,9 +26,6 @@ def do_deploy(archive_path):
         run('rm -rf /data/web_static/current')
         run('ln -s {} /data/web_static/current'.format(path))
 
-        print("New version deployed!")  # Print a message indicating success
-
         return True
-    except Exception as e:
-        print(f"Error: {e}")
+    except:
         return False
