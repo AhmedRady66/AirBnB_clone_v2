@@ -34,9 +34,8 @@ def python_text(text="is cool"):
 
 
 @app.route('/number/<int:n>')
-def number_text(n):
-    """replace with int only if given int"""
-    n = str(n)
+def number_n(n):
+    """display “n is a number” only if n is an integer"""
     return '{} is a number'.format(n)
 
 
