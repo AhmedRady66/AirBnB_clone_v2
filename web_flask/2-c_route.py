@@ -18,16 +18,11 @@ def hello_hbnb():
     return "HBNB"
 
 
-@app.route("/c/is_fun", strict_slashes=False)
-def is_fun():
-    """function return text"""
-    return "C is fun"
-
-
-@app.route("/c/cool", strict_slashes=False)
-def cool():
-    """function return text"""
-    return "C cool"
+@app.route("/c/<text>", strict_slashes=False)
+def c_text(text):
+    """ replace text with variable. """
+    text = text.replace('_', ' ')
+    return 'C {}'.format(text)
 
 
 if __name__ == "__main__":
